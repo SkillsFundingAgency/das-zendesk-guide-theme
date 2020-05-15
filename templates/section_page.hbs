@@ -1,0 +1,113 @@
+<div class="govuk-width-container">
+  
+<!-- Apprentice Articles -->
+{{!live  {{#is section.id 360003833019 }} 
+{{!sbox}}{{#is section.id 360003798540 }}
+  <style>.hide-for-apprentices { display: none; }</style>
+{{else}}
+  {{#link 'help_center' class='govuk-back-link'}}
+    Help home
+  {{/link}}
+{{/is}}
+  
+<!-- Coronavirus Promoted Articles -->
+{{!sandbox   {{#is section.id 360003793219}}
+{{!live    }}{{#is section.id 360003793119}}
+    
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div style="background-color: #f3f2f1; padding: 20px; margin: 50px 0;">
+      	
+        <h1 class="govuk-heading-l">Essential coronavirus (COVID-19) guidance</h1>
+        
+        	<p class="govuk-body"><a href="https://www.gov.uk/government/publications/coronavirus-covid-19-apprenticeship-programme-response" target="_blank" title="Opens in a new window">Read our guidance</a> on the changes we’re making to apprenticeships. You can also find out how to:</p>
+        
+        {{#if section.articles}}
+          <ul class="govuk-list govuk-list--bullet">
+            {{#each section.articles}}
+              {{#if promoted}}
+              <li class="govuk-!-margin-bottom-2">
+                <a href="{{url}}" class="govuk-link">{{title}}</a>
+              </li>              
+              {{/if}}
+            {{/each}}
+          </ul>
+        {{/if}}        
+      </div>
+    </div>
+  </div>
+{{/is}}
+<!-- Coronavirus Promoted Articles -->
+
+<!-- Apprentice Promoted Articles -->
+{{!sandbox   {{#is section.id 360003833019}}
+{{!live    }}{{#is section.id 360003798540}}
+    
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div style="background-color: #f3f2f1; padding: 20px; margin: 50px 0;">
+      	
+        <h1 class="govuk-heading-l">Essential coronavirus (COVID-19) guidance</h1>
+        
+        {{#if section.articles}}
+          <ul class="govuk-list govuk-list--bullet">
+            {{#each section.articles}}
+              {{#if promoted}}
+              <li class="govuk-!-margin-bottom-2">
+                <a href="{{url}}" class="govuk-link">{{title}}</a>
+              </li>              
+              {{/if}}
+            {{/each}}
+          </ul>
+        {{/if}}        
+        
+      </div>
+    </div>
+  </div>
+{{/is}}
+<!-- Apprentice Promoted Articles -->
+
+
+
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-l">All <span class="app-text--lowercase">{{section.name}}</span> articles for the apprenticeship service</h2>
+
+    {{#if section.description}}
+      <p class="govuk-body">{{section.description}}</p>
+    {{/if}}
+
+    {{#if section.articles}}
+      <ul class="govuk-list">
+        {{#each section.articles}}
+          <li class="govuk-!-margin-bottom-3">
+            <a href="{{url}}" class="govuk-link">{{title}}</a>
+          </li>
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    <br>{{pagination}}
+
+  </div>
+</div>      
+  
+<!-- Apprentices Articles -->
+{{!live}}{{#is section.id 360003798540 }} 
+{{!sbox  {{#is section.id 360003833019 }}
+<hr />  
+<section class="app-section">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full"> 
+        <h2 class="govuk-heading-l" id="contact-us">Apprenticeship helpline</h2>
+        <p class="govuk-body"><a href="mailto:nationalhelpdesk@apprenticeships.gov.uk" class="govuk-link" target="_blank">nationalhelpdesk@apprenticeships.gov.uk</a>.</p>
+        <p class="govuk-body">Telephone: 0800 015 0400</p>
+        <p class="govuk-body">8am to 10pm, 7 days a week</p>
+      </div>
+    </div>
+  </div>
+</section>  
+{{/is}}
+  

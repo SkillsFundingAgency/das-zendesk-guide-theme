@@ -1,0 +1,40 @@
+<div id="main-content" class="govuk-width-container">
+  
+{{!live}}{{#is section.id 360003798540 }}
+{{!sbox  {{#is section.id 360003833019 }}
+	{{! Apprentices Articles -- }}
+  <a  class='govuk-back-link' href="/hc/en-gb/sections/360003798540-Apprentice">Apprentice</a>
+  <style>.hide-for-apprentices { display: none; }</style>
+{{else}}
+	{{! All other articles -- }}
+  {{#link 'help_center' class='govuk-back-link'}}Help home{{/link}}
+{{/is}}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 title="{{article.title}}" class="govuk-heading-xl govuk-!-margin-top-8 govuk-!-margin-bottom-8">{{article.title}}</h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{article.body}}
+    </div>
+  </div>
+
+  {{#with article}}
+    <div>
+      <div class="article-vote govuk-!-margin-top-6">
+      {{vote 'up' role='radio' class='article-vote-hidden' selected_class="voted"}}
+      {{vote 'down' role='radio' class='article-vote-hidden' selected_class='voted'}}
+        <span class="vote-prompt">Is this page useful?</span>
+        <span class="article-vote-thanks govuk-!-margin-top-6">
+          Thank you for your feedback. You can  
+        </span>
+        {{vote 'up' role='radio' class='article-vote article-vote-up' selected_class="voted"}}
+        {{vote 'down' role='radio' class='article-vote article-vote-down' selected_class='voted'}}
+      </div>
+    </div>
+  {{/with}}
+        
+</div>

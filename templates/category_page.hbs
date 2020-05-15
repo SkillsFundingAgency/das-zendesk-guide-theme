@@ -1,0 +1,46 @@
+<div class="govuk-width-container">
+    
+  {{#link 'help_center' class='govuk-back-link'}}
+    Help home
+  {{/link}}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl govuk-!-margin-top-8 govuk-!-margin-bottom-8">All enquiries</h1>
+      <p class="govuk-body">This page lists knowledge articles fo each user group that the apprenticeship service works with</p>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      <p class="govuk-body">Contents</p>
+      {{!-- {{section_tree_with_article}} --}}
+
+      <ol class="govuk-list govuk-list--number">
+        {{#each sections}}
+          <li><a href="#section-{{name}}" class="govuk-link">{{name}}</a></li>
+        {{/each}}
+      </ol>
+
+      {{#each sections}}
+        <div id="section-{{name}}">
+          <h3 class="govuk-heading-m">{{name}}</h3>
+          {{#if articles}}
+            <ul class="govuk-list">
+              {{#each articles}}
+                <li><a href="{{url}}" class="govuk-link">{{title}}</a></li>
+              {{/each}}
+            </ul>
+            {{#if more_articles}}
+              <a href="{{url}}" class="govuk-body govuk-link  govuk-!-font-weight-bold">
+                {{t 'show_all_articles' count=article_count}}
+              </a>
+            {{/if}}
+          {{/if}}
+        </div>
+      {{else}}
+        <p class="govuk-body">
+          <a href="{{category.url}}">{{t 'empty'}}</a>
+        </p>
+      {{/each}}
+
+    </div>
+  </div>
+    
+</div>
