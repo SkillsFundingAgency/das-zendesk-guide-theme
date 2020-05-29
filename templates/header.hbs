@@ -54,16 +54,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </header>
 
-<div class="govuk-phase-banner govuk-width-container hide-for-apprentices">
-  <p class="govuk-phase-banner__content">
-    <strong class="govuk-tag govuk-phase-banner__content__tag">
-      beta
-    </strong>
-    <span class="govuk-phase-banner__text">
-      This is a new service – your <a class="govuk-link" href="https://help.apprenticeships.education.gov.uk/hc/en-gb/requests/new?ticket_form_id=360000292379">feedback</a> will help us to improve it.
-    </span>
-  </p>
-</div>
+{{#if signed_in}}
+<nav id="requests-sub-nav" class="govuk-phase-banner govuk-width-container">
+  <ul class="govuk-list" role="menubar">
+    <li><a href="/access/logout?return_to=https%3A%2F%2Fsupport.zendesk.com%2Fhc%2Fen-us" class="govuk-link govuk-link--no-visited-state" role="menuitem">Sign out</a></li>
+  </ul>
+</nav>
+{{/if}}
 
 <!-- ****** cronavirus start ****** -->
   <section name="header-coronavirus-banner" class="govuk-width-container hide-for-apprentices">

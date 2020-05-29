@@ -57,7 +57,173 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   /* cookie banner ends */  
   
-	/* <start> New Ticket Request page */
+	
+  
+  
+/* *** requests ticket list page start *** */
+  var requests = $('#requests-pagination');
+  if(requests){
+			 var li = requests.find('li').not('.pagination-current, .pagination-next, .pagination-prev, .pagination-first, .pagination-last').length;
+       if(li == 1){
+         requests.find('.pagination-last').add('.pagination-first').addClass('hide');
+       }
+  }
+  
+  /* request page start */
+  var request = $('#request-page');
+  if(request){
+  	var requestForm = request.find('form.comment-form');   
+    var requestTextArea = $('#request_comment_body');
+    var submitBtn = $('#request-submit-btn');
+    var solvedBtn = $('#request-solved-btn'); 
+    
+    function addRequestErrors(){
+      $('#conversation-error').removeClass('hide').attr('aria-hidden','false');
+      $('#conversation-form').addClass('govuk-form-group--error').find('fieldset').attr('aria-describedby','conversation-error');
+      $('#request_comment_body').focus();
+    }
+    
+    function clearRequestErrors(){
+      $('#conversation-error').addClass('hide').attr('aria-hidden','true');
+      $('#conversation-form').removeClass('govuk-form-group--error').find('fieldset').removeAttr('aria-describedby');
+    }
+    
+    requestTextArea.on('change keyup paste', function() {
+      solvedBtn.text('Mark as solved & Submit');
+      if (!$.trim(requestTextArea.val())) {//has no values/content
+        solvedBtn.text('Mark as solved');
+      }else{
+        clearRequestErrors();
+      }
+    }).blur(function(){
+      if ( !$.trim(requestTextArea.val()) ) {//has no values/content
+      	clearRequestErrors();
+      }
+    });
+    
+    submitBtn.on('click', function(e){
+      	e.preventDefault();
+        if(	!$.trim(requestTextArea.val()) ){//textarea empty and no files selected for upload
+          addRequestErrors();
+        }else{
+          requestForm.submit();
+        }
+    });
+    
+    solvedBtn.on('click',function(e){
+      e.preventDefault();
+      $('#mark_as_solved').prop('checked', true);   
+    	requestForm.submit();
+    });
+    
+  }
+  
+  var mytix = $('#mytix');/* tickets sub menu active underline state */
+  if(mytix){
+	  var thisURL = window.location.href;
+    var strSlash = thisURL.substring(thisURL.lastIndexOf('/') + 1); 
+    if(strSlash.startsWith('requests')){
+       mytix.addClass('active');
+    }else if(strSlash.startsWith('ccd')){
+       $('#mytxtCC').addClass('active');
+    }
+  }
+  var requestSelect = $('#request-status-select');
+  if(requestSelect){
+     requestSelect.find('option:first-child').text('View all');
+     var filterForm = $('body').children('main').find('form.requests-table-toolbar')
+     requestSelect.change(function(){
+       filterForm.submit();
+       return false;
+     });
+  }
+
+//var signinIframe = $('body').children('div');
+  /*function makeSignInChanges(){
+  var theContent = signinIframe.children('iframe[scrolling="no"]:not([id])').contents();
+  theContent.find('#signin-styles').remove().end().find('head').prepend('<style id="signin-styles">'+
+        'div.modal * {font-family: "GDS Transport",Arial,sans-serif !important;}'+ 
+        'div.modal{border:4px solid #ccc !important;padding:40px !important;width:600px !important;box-shadow:0 4px 17px 0 rgba(0,0,0,0.4) !important;}'+ 
+        'div.modal div.flash.flash-notice{display:block;position:absolute;left:-3000px;top:-3000px;}'+ 
+	'div.flash.flash-error{padding: 0;margin: 0 0 20px 0;background: none;font-weight: bold;color:#d4351c !important;}'+
+	'div.flash.flash-error a,div.modal.password-reset-success-modal .controls.center_link a{text-decoration: underline !important;}'+
+        '#login-form input#user_email,#login-form input#user_password,#login-form input#remember_me,#registration-form #user_name{margin-bottom:30px !important;}'+ 
+        'div.interface.outer h2#signin_title, div.modal > h2.title{font-weight:bold;text-align:left;font-size:23px !important;font-size:1.65rem !important;}'+
+        'div.services.internal, #password-reset-form > p,#registration-form > p{width:100% !important;}'+
+        'div.credentials label,div.remember label,#password-reset-form > fieldset label,#registration-form fieldset label{font-weight:400 !important;color:#0b0c0c;display:inline-block;margin-bottom:5px;font-size:19px !important;font-size:1.35rem !important;}'+
+        'div.credentials input,#password-reset-form input#email,#registration-form fieldset input{height:45px !important;margin-top:0;padding:5px;border:2px solid #0b0c0c;width:100%;border-radius:0;}'+
+        'div.remember{margin:30px 0 0 0 !important;}'+
+        '#login-form > input.button.primary,#password-reset-form .controls .button.primary,#registration-form .controls .button.primary{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:19px;line-height:1.1875;-webkit-box-sizing:border-box;box-sizing:border-box;display:inline-block;position:relative;width:auto;margin-top:0;margin-bottom:22px;padding:8px 10px 7px;border:2px solid transparent;border-radius:0;color:#fff;background-color:#00703c;box-shadow:0 2px 0 #002d18;text-align:center;vertical-align:top;cursor:pointer;-webkit-appearance:none;float:left;}'+
+        '#zendesk-js-forgot-password, #password-reset-form > p,#registration-form > p,div.flash.flash-error,div.modal.password-reset-success-modal p,div.modal.password-reset-success-modal .controls.center_link a {text-align:left;font-size:19px !important;font-size:1.35rem !important;line-height:1.4 !important;}'+
+        'div.footnotes p.get_password.question,div.footnotes p.get_password.question + p,div.footnotes div.sign_up.question{display:none;}'+    
+        '@media only screen and (min-width:768px){div.modal{width:auto; }}'+   
+	'div.credentials input:focus,#login-form #remember_me:focus,#password-reset-form input#email:focus,#registration-form #user_name:focus,#registration-form #user_email:focus{outline:3px solid #fd0;outline-offset:0;box-shadow: inset 0 0 0 2px;}'+
+	'form#login-form input.button.primary:focus,#password-reset-form input.button.primary:focus,#registration-form input.button.primary:focus{border-color:#fd0;color:#0b0c0c;background-color:#fd0;box-shadow:0 2px 0 #0b0c0c;outline: 3px solid transparent;}'+
+	'#zendesk-js-forgot-password{margin:0;}'+
+	'div.modal.password-reset-success-modal .controls.center_link{text-align:right !important;}'+
+	'div.modal.password-reset-success-modal .controls.center_link a{color:#1d70b8 !important;}'+
+	'div.modal.password-reset-success-modal > p + p{display:none;}'+
+	'#password-reset-form > p{position: relative;text-indent:-3000px;height:60px;display:block;font-size:19px !important;}'+
+  '#password-reset-form > p:before{content: "Enter your email address and we’ll send you a link to reset your password.";position:absolute;height:inherit;width:inherit;left:0;top:0;z-index:100;text-indent:0;}'+
+	'div.modal:not(.password-reset-success-modal):not(.signin) > h2.title{height: 30px;position:relative;text-indent:-3000px !important;display:block;font-size:19px !important;}'+
+	'div.modal:not(.password-reset-success-modal):not(.signin) > h2.title:before{content:"Reset your password";position:absolute;height:inherit;width:inherit;left:0;top:0;z-index:100;text-indent:0;font-size:23px;}'+
+	'#login-form .credentials label[for="user_email"]{height:30px;position:relative;width:100%;margin-bottom:50px;}'+
+	'#login-form .credentials label[for="user_email"]:before{display:inline-block;position:absolute;width:100%;color:#626a6e;font-size:14px;height:45px;top:30px;content:"Your sign in details are not linked to your apprenticeship service account. Select ‘reset your password’ if you need to create sign in details.";}'+
+      '</style>');
+    var fgp = theContent.find('#zendesk-js-forgot-password');
+    fgp.find('a').text('Reset your password');
+}*/
+  
+/*if(signinIframe.children('iframe:not([id])').length){
+    MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+    var observer = new MutationObserver(function(mutations, observer){// fired when a mutation occurs //console.log(mutations, observer);
+      makeSignInChanges();
+      //replaceSignInContent();
+    });
+    observer.observe(document, {subtree: true, attributes: true });//this level needed for <style> injection: observer.observe(document, {subtree: true, attributes: true, childList: true });
+}*/
+/* *** request(s) page(s) ends *** */  
+  
+ 
+/* *** maintain list state on back-button, starts *** */      
+var requestSubject = $('#request_subject');
+ 
+if(requestSubject.length){//if the contact form with subject search articles options
+  var mySearchDiv = $('.suggestion-list');
+
+  $(window).on('beforeunload', function(){//when refreshing the page
+      $('#tempList').remove();
+  });
+
+  if(localStorage.getItem("thisURL") == window.location.href){//back-button used?
+    //$(window).on('load', function(){
+        requestSubject.val(localStorage.getItem("theInputVal"));
+    //}); 
+    mySearchDiv.html('<div id="tempList">'+ localStorage.getItem("theListHTML") +'</div>');
+  }else{
+    requestSubject.val('');
+    requestSubject.attr("autocomplete", "off");
+  }
+  $('body').on('click',mySearchDiv.find('a'), function(){
+    var theList = mySearchDiv.html();
+    var theVal = requestSubject.val();
+    localStorage.setItem("theListHTML", theList);
+    localStorage.setItem("theInputVal", theVal); 
+  });
+  requestSubject.keyup(function(){
+    $('#tempList').remove();
+  });
+
+  localStorage.setItem("thisURL", window.location.href);        
+}else{//all other pages
+  $('.submit-a-request').add('.govuk-link').click(function(){//.govuk-link = feedback button
+    localStorage.setItem("theInputVal", "");//not removeItem
+    localStorage.setItem("theListHTML", "");//not removeItem
+  });
+}
+/* *** maintain list state on back-button, ends *** */    
+
+/* <start> New Ticket Request page */
   if($('#new_request').length){//= we're on a ticket form page
       //var $das_feedback_form = $('#das-feedback-form');
       var ticketForm = $('#request_issue_type_select').find('option:selected').val();
@@ -135,46 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }    
       //******************************* error msgs ends.
   }
-  /* <end> New Ticket Request page */
- 
-/* *** maintain list state on back-button, starts *** */      
-var requestSubject = $('#request_subject');
- 
-if(requestSubject.length){//if the contact form with subject search articles options
-  var mySearchDiv = $('.suggestion-list');
-
-  $(window).on('beforeunload', function(){//when refreshing the page
-      $('#tempList').remove();
-  });
-
-  if(localStorage.getItem("thisURL") == window.location.href){//back-button used?
-    //$(window).on('load', function(){
-        requestSubject.val(localStorage.getItem("theInputVal"));
-    //}); 
-    mySearchDiv.html('<div id="tempList">'+ localStorage.getItem("theListHTML") +'</div>');
-  }else{
-    requestSubject.val('');
-    requestSubject.attr("autocomplete", "off");
-  }
-  $('body').on('click',mySearchDiv.find('a'), function(){
-    var theList = mySearchDiv.html();
-    var theVal = requestSubject.val();
-    localStorage.setItem("theListHTML", theList);
-    localStorage.setItem("theInputVal", theVal); 
-  });
-  requestSubject.keyup(function(){
-    $('#tempList').remove();
-  });
-
-  localStorage.setItem("thisURL", window.location.href);        
-}else{//all other pages
-  $('.submit-a-request').add('.govuk-link').click(function(){//.govuk-link = feedback button
-    localStorage.setItem("theInputVal", "");//not removeItem
-    localStorage.setItem("theListHTML", "");//not removeItem
-  });
-}
-/* *** maintain list state on back-button, ends *** */    
-  
+  /* <end> New Ticket Request page */  
   
   if($('#full_width_pg').length){//if this id is used once in an article all pg layout is changed to full width
     $('#main-content').find('> .govuk-grid-row > .govuk-grid-column-two-thirds').addClass('govuk-grid-column-full').removeClass('govuk-grid-column-two-thirds');   

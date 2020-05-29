@@ -1,122 +1,168 @@
-<nav class="my-activities-nav collapsible-nav">
-  <ul class="collapsible-nav-list container">
-    <li aria-selected=true>{{t 'requests'}}</li>
-    <li>{{link 'contributions'}}</li>
-    <li>{{link 'subscriptions'}}</li>
-  </ul>
-</nav>
+  <div class="govuk-width-container">
+ 		
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full govuk-!-margin-top-6 govuk-!-margin-bottom-0">
+          <h1 class="govuk-heading-xl">Your tickets</h1>
 
-<div class="container">
-  <header class="my-activities-header">
-    <h1>{{t 'my_requests'}}</h1>
-    <nav class="my-activities-sub-nav collapsible-nav">
-      <ul class="collapsible-nav-list">
-        {{#each filters}}
-          {{#if selected}}
-            <li aria-selected=true>{{name}}</li>
-          {{else}}
-            <li>
-              <a href="{{url}}">{{name}}</a>
-            </li>
-          {{/if}}
-        {{/each}}
-      </ul>
-    </nav>
-  </header>
-
-  {{#form 'requests_filter' class='requests-table-toolbar'}}
-    <div class="search">
-      {{input 'query' id='quick-search' type='search' class='requests-search'}}
-    </div>
-    {{#if help_center.multiple_organizations_enabled}}
-      <div class="request-table-filter">
-        {{label 'organization' for='request-organization-select' class='request-filter request-filter-label'}}
-        {{select 'organization' id='request-organization-select' class='request-filter'}}
+          <nav id="requests-tickets-menu" class="govuk-clearfix">
+              <ul class="govuk-list" role="menubar">
+                  <li>
+                      <a href="/hc/en-gb/requests" class="govuk-link govuk-link--no-visited-state app-navigation__link" id="mytix" role="menuitem">Your tickets</a>
+                  </li>
+                  <li>
+                    <a href="/hc/en-gb/requests/ccd" class="govuk-link govuk-link--no-visited-state" id="mytxtCC" role="menuitem">Tickets I&#8217;m <abbr title="Complimentary copy">CC</abbr>&#8217;d on</a>
+                  </li>
+              </ul>
+          </nav>
       </div>
-    {{/if}}
-
-    <div class="request-table-filter">
-      {{subscribe}}
     </div>
-
-    <div class="request-table-filter">
-      {{label 'status' for='request-status-select' class='request-filter request-filter-label'}}
-      {{select 'status' id='request-status-select' class='request-filter'}}
-    </div>
-  {{/form}}
-
-  {{#if query}}
-    <div class="requests-search-info meta-data">
-      {{t 'requests_search_results_info' count=requests.length query=query}}
-    </div>
-  {{else}}
-    {{#unless requests}}
-      <p class="no-activities">{{t 'no_requests'}}</p>
-    {{/unless}}
-  {{/if}}
-
-  <div class="requests">
-    {{#if requests}}
-      <table class="table my-activities-table requests-table {{current_filter.identifier}}-requests">
-        <thead>
-          <tr>
-            <th>{{t 'subject'}}</th>
-            <th>{{t 'id'}}</th>
-            <th>
-              {{#is current_filter.identifier 'my'}}
-                {{#link 'requests' sort_by='created_at'}}{{t 'created'}}{{/link}}
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">    
+        <nav id="requests-menu-2" class="my-activities-sub-nav collapsible-nav">
+          <ul class="collapsible-nav-list">
+            {{#each filters}}
+              {{#if selected}}
+                <li aria-selected=true>{{name}}</li>
               {{else}}
-                {{t 'requester'}}
-              {{/is}}
-            </th>
-            <th>{{#link 'requests' sort_by='updated_at'}}{{t 'last_activity'}}{{/link}}</th>
-            <th>
-              {{t 'status'}}
-            </th>
-          </tr>
-        </thead>
+                <li>
+                  <a href="{{url}}">{{name}}</a>
+                </li>
+              {{/if}}
+            {{/each}}
+          </ul>
+        </nav>
+      </div>
+    </div>
 
-        <tbody>
-          {{#each requests}}
-            <tr {{#is status 'closed'}} class="request-closed" {{/is}}>
-              <td class="request-info requests-table-info">
-                <a href="{{url}}" class="striped-list-title" title="{{subject}}">
-                  {{#if subject}}
-                    {{subject}}
-                  {{else}}
-                    {{excerpt description characters=50}}
-                  {{/if}}
-                </a>
+    <div class="govuk-grid-row govuk-!-margin-bottom-2">
+      {{#form 'requests_filter' class='requests-table-toolbar'}}
+        <div class="search govuk-grid-column-two-thirds">
+          
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-form-group">
 
-                <!-- Visible on mobile -->
-                <div class="requests-table-meta meta-group">
-                  <span class="meta-data">#{{id}}</span>
-                  <span class="meta-data">{{date created_at timeago=true}}</span>
-                  <span class="status-label status-label-{{status}}" title="{{status_description}}">
-                    {{status_name}}
-                  </span>
+              <label class="govuk-label" for="quick-search">Search</label>
+
+              <span id="request-search-hint" class="govuk-hint govuk-!-padding-bottom-0">Search for a ticket <abbr>ID</abbr>, subject or message</span>
+
+              {{input 'query' id='quick-search' type='search' class='govuk-input govuk-!-width-full'}}
+
+             <div class="request-table-filter hide">
+                  {{subscribe}}
                 </div>
-              </td>
-              <td>#{{id}}</td>
-              <td>
-                {{#is ../current_filter.identifier 'my'}}
-                  {{date created_at timeago=true}}
-                {{else}}
-                  {{requester.name}}
-                {{/is}}
-              </td>
-              <td>{{date updated_at timeago=true}}</td>
-              <td class="requests-table-status">
-                <span class="status-label status-label-{{status}}" title="{{status_description}}">
-                  {{status_name}}
-                </span>
-              </td>
-            </tr>
-          {{/each}}
-        </tbody>
-      </table>
-    {{/if}}
-  </div>
+             </div>
+          </fieldset>
+          
+        </div>
+        <div class="request-table-filter govuk-grid-column-one-third govuk-!-padding-top-1">
+          <label class="govuk-label govuk-!-margin-top-6" for="request-status-select">Status</label>
+          {{select 'status' id='request-status-select' class='request-filter govuk-select'}}
+        </div>
+      {{/form}}
+    </div>
 
-  {{pagination}}
-</div>
+    {{#if query}}
+    <div class="govuk-grid-row">  
+      <div class="requests-search-info meta-data govuk-grid-column-full">
+        {{t 'requests_search_results_info' count=requests.length query=query}}
+      </div>
+    </div>
+    {{else}}
+      {{#unless requests}}
+        <div class="govuk-grid-row"> 
+          <div class="govuk-grid-column-full">
+            <p class="govuk-body no-activities">{{t 'no_requests'}}</p>
+          </div>
+        </div>
+      {{/unless}}
+    {{/if}}
+
+    <div class="govuk-grid-row govuk-!-margin-bottom-7">
+      <div class="requests govuk-grid-column-full">
+        {{#if requests}}
+          <table id="requests-tbl" class="govuk-table govuk-!-margin-top-5 govuk-!-margin-bottom-0">	
+            
+            <col class="col01"><col class="col02"><col class="col03"><col class="col04"><col class="col05">
+            <caption class="govuk-table__caption">Table of Requests</caption>
+            
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header">
+                  {{t 'subject'}}
+                </th>
+                <th class="govuk-table__header">
+                  Ticket&nbsp;<abbr class="uppercase" title="Identifier">{{t 'id'}}</abbr>
+                </th>
+                <th class="govuk-table__header">
+                  
+                  {{#is current_filter.identifier 'my'}}
+                    {{#link 'requests' sort_by='created_at'}}{{t 'created'}}{{/link}}
+                  {{else}}
+                    {{t 'requester'}}
+                  {{/is}}
+                 
+                </th>
+                <th class="govuk-table__header">
+                  {{#link 'requests' sort_by='updated_at'}}{{t 'last_activity'}}{{/link}}
+                </th>
+                <th class="govuk-table__header">
+                  {{t 'status'}}
+                </th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              {{#each requests}}
+                <tr {{#is status 'closed'}} class="request-closed govuk-table__row" {{/is}}>
+                  <th scope="row" class="govuk-table__header"> <!-- request-info requests-table-info -->
+
+                    <a href="{{url}}" class="govuk-link" title="{{subject}}"> <!-- striped-list-title -->
+                      {{#if subject}}
+                        {{subject}}
+                      {{else}}
+                        {{excerpt description characters=50}}
+                      {{/if}}
+                    </a>
+                    <!-- Visible on mobile -->      	<!-- https://developer.zendesk.com/apps/docs/help-center-templates/objects -->
+                    <div class="requests-table-meta meta-group hide">
+                      <span class="meta-data">Ticket&nbsp;ID: #{{id}}</span>. <br>
+                      <span class="meta-data">Created: {{date created_at timeago=true}}</span>. <br>  
+                      <span class="meta-data status-label-{{status}}" title="{{status_description}}">
+                        Status: <b>{{status_name}}</b>. 
+                      </span><!-- status-label -->
+                    </div>
+
+                  </th>
+                  <td class="govuk-table__cell">
+                    #{{id}}
+                  </td>
+                  <td class="govuk-table__cell">
+
+                    {{#is ../current_filter.identifier 'my'}}
+                      {{date created_at timeago=true}}
+                    {{else}}
+                      {{requester.name}}
+                    {{/is}}
+
+                  </td>
+                  <td class="govuk-table__cell">
+                    {{date updated_at timeago=true}}
+                  </td>
+                  <td class="govuk-table__cell">  <!-- requests-table-status -->
+                    <span class="status-label status-label-{{status}} das-no-wrap" title="{{status_description}}">
+                      {{status_name}}
+                    </span>
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        {{/if}}
+      </div>
+    </div>
+    
+    <div id="requests-pagination">
+	    {{pagination}}
+    </div>
+    
+  </div>
