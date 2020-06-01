@@ -243,7 +243,7 @@ if(requestSubject.length){//if the contact form with subject search articles opt
         // }        
         
         /* Feedback page */
-        if(ticketForm == 360000292379) {//feedback form
+        if(ticketForm == esfa_variables.form_id_feedback) {
           $('#ticket-heading').html('Give feedback');
           $request_description_label.html('Your feedback');
 					$request_description_hint.hide();
@@ -264,7 +264,7 @@ if(requestSubject.length){//if the contact form with subject search articles opt
           }
 
         /* "Send a message" page */
-        }else if(ticketForm = 360000235179) {//send a msg pg
+      }else if(ticketForm = esfa_variables.form_id_default) { 
           $request_description_label.html('Your message');
           $request_description_hint.hide(); 
           $('<p class="govuk-hint govuk-body-s">We’ll send you an email to confirm we received your message. During our opening times, we’ll reply within 4 hours.</p>').insertBefore($request_anonymous_requester_email); 
