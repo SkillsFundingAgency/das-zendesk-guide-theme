@@ -370,6 +370,25 @@
           "value": true
         }
       ]
+    },
+    {
+      "label": "knowledge_base_section_and_form_ids",
+      "variables": [
+        {
+          "identifier": "form_id_default",
+          "type": "text",
+          "description": "Ticket form",
+          "label": "Send a Message",
+          "value": "360000695579"
+        },
+        {
+          "identifier": "form_id_feedback",
+          "type": "text",
+          "description": "Ticket form",
+          "label": "Feedback ",
+          "value": "360000712140"
+        }
+      ]
     }
   ]
 }
