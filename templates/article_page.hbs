@@ -1,9 +1,8 @@
 <div id="main-content" class="govuk-width-container">
   
-{{!live}}{{#is section.id 360003798540 }}
-{{!sbox  {{#is section.id 360003833019 }}
+{{#is section.id settings.article_id_apprentice }}
 	{{! Apprentices Articles -- }}
-  <a  class='govuk-back-link' href="/hc/en-gb/sections/360003798540-Apprentice">Apprentice</a>
+  <a  class='govuk-back-link' href="/hc/en-gb/sections/{{settings.article_id_apprentice}}-Apprentice">Apprentice</a>
   <style>.hide-for-apprentices { display: none; }</style>
 {{else}}
 	{{! All other articles -- }}

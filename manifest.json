@@ -372,21 +372,35 @@
       ]
     },
     {
-      "label": "knowledge_base_section_and_form_ids",
+      "label": "Form / Kowledge Base IDs",
       "variables": [
         {
           "identifier": "form_id_default",
           "type": "text",
-          "description": "Ticket form",
-          "label": "Send a Message",
+          "description": "s",
+          "label": "Send a Message form",
           "value": "360000695579"
         },
         {
           "identifier": "form_id_feedback",
           "type": "text",
-          "description": "Ticket form",
-          "label": "Feedback ",
+          "description": "s",
+          "label": "Feedback form",
           "value": "360000712140"
+        },
+        {
+          "identifier": "article_id_covid19",
+          "type": "text",
+          "description": "Articles section",
+          "label": "COVID-19 Guidance",
+          "value": "360003793119"
+        },
+        {
+          "identifier": "article_id_apprentice",
+          "type": "text",
+          "description": "Articles section",
+          "label": "COVID-19 Apprentice",
+          "value": "360003798540"
         }
       ]
     }
