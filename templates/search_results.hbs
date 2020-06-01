@@ -1,0 +1,50 @@
+<div class="govuk-width-container">
+  {{#link 'help_center' class='govuk-back-link'}}
+    Help home
+  {{/link}}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl govuk-!-margin-top-8 govuk-!-margin-bottom-8">{{t 'search_results'}}</h1>
+      <div class="govuk-!-margin-bottom-6">
+        {{search submit=true instant=settings.instant_search class='app-search app-search--black-border'}}
+      </div>
+      <p class="govuk-body govuk-!-margin-bottom-0">{{t 'results' query=query count=results_count}}</p>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{#if article_results}}
+      <ul class="govuk-list">
+        {{#each article_results}}
+          <li class="govuk-!-margin-bottom-6">
+            <a href="{{url}}" class="govuk-heading-m govuk-!-margin-bottom-3 govuk-link">{{title}}</a>
+            {{#each path_steps}}
+              {{#if @last}}
+                <div class="govuk-tag app-tag--grey govuk-!-margin-bottom-3">{{name}}</div>
+              {{/if}}
+            {{/each}}
+            <p class="govuk-body">{{text}}</p>
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>
+<!--           {{t 'no_results' query=query}} -->
+        {{#link 'help_center'}}
+          Browse articles.
+        {{/link}}
+      </p>
+    {{/if}}
+    {{pagination}}
+    </div>
+  </div>
+        
+</div>
