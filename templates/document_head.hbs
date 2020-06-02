@@ -11,7 +11,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 {{/if}}
 
-<script id="co-snippet" src="https://embed-euw1.rcrsv.io/h6255jcoYuIOGsFnsagb3xgrbKz9mHeBGjifWcngdcP05WZQu46kKykuID1LpD9d?zwwi=1"> </script>
+{{#if settings.recursive_api_key}}
+<script id="co-snippet" src="https://embed-euw1.rcrsv.io/{{settings.recursive_api_key}}?zwwi=1"> </script>
+{{/if}}
 
 <script>
   // Hack to get settings into `script.js`, which does not support
