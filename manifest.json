@@ -1,7 +1,7 @@
 {
   "name": "GDS Style",
   "author": "Ben Arnold",
-  "version": "1.9.4",
+  "version": "1.9.6",
   "api_version": 1,
   "default_locale": "en-gb",
   "settings": [
@@ -141,6 +141,20 @@
           "description": "Articles section",
           "label": "COVID-19 Apprentice",
           "value": "360003798540"
+        },
+        {
+          "identifier": "google_tag_manager_id",
+          "type": "text",
+          "description": "GTM Identifier",
+          "label": "Google Tag Manager",
+          "value": ""
+        },
+        {
+          "identifier": "recursive_api_key",
+          "type": "text",
+          "description": "Co-Browsing",
+          "label": "Recursive API Key",
+          "value": ""
         }
       ]
     }
