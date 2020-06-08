@@ -140,6 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //var signinIframe = $('body').children('div');
   /*function makeSignInChanges(){
+    signinIframe.children('iframe[scrolling="no"]:not([id])').parent().addClass('XXXXXXXXXXXXXXXXXXXXXXXXXX');
   var theContent = signinIframe.children('iframe[scrolling="no"]:not([id])').contents();
   theContent.find('#signin-styles').remove().end().find('head').prepend('<style id="signin-styles">'+
         'div.modal * {font-family: "GDS Transport",Arial,sans-serif !important;}'+ 

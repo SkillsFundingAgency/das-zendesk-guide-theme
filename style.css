@@ -1035,3 +1035,27 @@ iframe#launcher.zEWidget-launcher.zEWidget-launcher--active {
 .wysiwyg-text-align-center iframe {
   width: 100%;
 }
+
+
+/* start temp styling around modals */
+body.govuk-template__body.js-enabled > footer.govuk-footer ~ div[style] {
+  border: 4px solid #666 !important;
+  margin: 60px auto;
+  width: 650px !important; 
+  height: auto;
+  padding: 40px 0 60px 0 !important;
+  background-color: #fff;
+}
+
+body.govuk-template__body.js-enabled > footer.govuk-footer ~ div[style] ~ div#cwmn-panel:before {
+  content: ' ';
+	display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+/* end temp styling around modals */
