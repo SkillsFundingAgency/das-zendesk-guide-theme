@@ -129,6 +129,20 @@
           "value": "360000712140"
         },
         {
+          "identifier": "article_id_cookies",
+          "type": "text",
+          "description": "Footer section",
+          "label": "Cookies",
+          "value": "360008941440"
+        },
+        {
+          "identifier": "article_id_accessibility",
+          "type": "text",
+          "description": "Footer section",
+          "label": "Accesibility",
+          "value": "360008997820"
+        },
+        {
           "identifier": "article_id_covid19",
           "type": "text",
           "description": "Articles section",
