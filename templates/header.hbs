@@ -1,17 +1,45 @@
-{{#if settings.google_tag_manager_id}}
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{settings.google_tag_manager_id}}"
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N77DM65"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-{{/if}}
-
-<a href="#content" class="govuk-skip-link">Skip to main content</a>
 
 <!-- cookies msg starts -->
-<div id="global-cookie-message-help" class="gem-c-cookie-banner" role="region" aria-label="cookie banner">
+<section id="global-cookie-message-help">
+  <div id="cookieWrapper" class="govuk-width-container gem-c-cookie-banner gem-c-cookie-banner__wrapper" role="region" aria-label="cookie banner">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds gem-c-cookie-banner__buttons">
+
+        <span class="govuk-heading-m">Tell us whether you accept cookies</span>
+
+        <p class="govuk-body">We use <a href="https://help.apprenticeships.education.gov.uk/hc/en-gb/articles/360008941440-Cookies" class="govuk-link">cookies to collect information</a> about how you use GOV.UK. We use this information to make the website work as well as possible and improve government services.</p>
+
+        <div class="govuk-grid-column-full govuk-grid-column-one-half-from-desktop gem-c-cookie-banner__button-accept">
+          <button class="govuk-button gem-c-button" type="submit" data-module="track-click" data-accept-cookies="true" data-track-category="cookieBanner" data-track-action="Cookie banner accepted">Accept all cookies</button>
+        </div>
+        <div class="govuk-grid-column-full govuk-grid-column-one-half-from-desktop gem-c-cookie-banner__button-settings">
+          <a class="govuk-button gem-c-button" role="button" data-module="track-click" data-track-category="cookieBanner" data-track-action="Cookie banner settings clicked" href="https://help.apprenticeships.education.gov.uk/hc/en-gb/articles/360008941440-Cookies">Set cookie preferences</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="cookieConfirm" class="govuk-width-container gem-c-cookie-banner__confirmation" tabindex="-1">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <p class="govuk-body">You’ve accepted all cookies. You can <a class="govuk-link" href="https://help.apprenticeships.education.gov.uk/hc/en-gb/articles/360008941440-Cookies" data-module="track-click" data-track-category="cookieBanner" data-track-action="Cookie banner settings clicked from confirmation">change your cookie settings</a> at any time.</p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <button class="gem-c-cookie-banner__hide-button das-float-right" data-hide-cookie-banner="true" data-module="track-click" data-track-category="cookieBanner" data-track-action="Hide cookie banner">Hide</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--div id="global-cookie-message-help" class="gem-c-cookie-banner hide" role="region" aria-label="cookie banner">
   <div class="gem-c-cookie-banner__wrapper govuk-width-container">
-    <p class="gem-c-cookie-banner__message">The <abbr title="Education and Skills Funding Agency">ESFA</abbr> uses cookies to make the site simpler.</p>
-    
+    <p class="govuk-body">We use <a class="govuk-link" href="https://help.apprenticeships.education.gov.uk/hc/en-gb/articles/360008941440-Cookies">cookies to collect information</a> about how you use GOV.UK. We use this information to make the website work as well as possible and improve government services.</p>
+
     <div class="gem-c-cookie-banner__buttons">
       <div class="gem-c-cookie-banner__button gem-c-cookie-banner__button-accept">
 				<button class="gem-c-button govuk-button gem-c-button--secondary gem-c-button--inline" type="submit" data-module="track-click" data-accept-cookies="true" data-track-category="cookieBanner" data-track-action="Cookie banner accepted">Accept cookies</button>
@@ -28,7 +56,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </p>
     <button class="gem-c-cookie-banner__hide-button" data-hide-cookie-banner="true" data-module="track-click" data-track-category="cookieBanner" data-track-action="Hide cookie banner">Hide</button>
   </div>
-</div>
+</div-->
 <!-- cookies msg ends -->
 
 <header class="govuk-header" data-module="header">
@@ -67,14 +95,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ****** cronavirus start ****** -->
   <section name="header-coronavirus-banner" class="govuk-width-container hide-for-apprentices">
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full" style="border: 10px solid #ffe114; padding: 20px; padding-bottom: 10px; margin-top: 30px !important; margin-bottom: 20px;">  
+      <div class="govuk-grid-column-full" style="border: 10px solid #ffe114; padding: 20px; padding-bottom: 10px; margin-top: 30px !important; margin-bottom: 20px;">
         <p class="govuk-body-l govuk-!-font-weight-bold" >
-          <strong>Coronavirus (COVID-19)</strong>: <a href="/hc/en-gb/sections/{{settings.article_id_covid19}}-Coronavirus"
-                     class="govuk-link" style="color: #1d70b8;">check how the apprenticeship service will support you</a>. 
+          <strong>Coronavirus (COVID-19)</strong>: <a
+          {{!sandbox }}href="/hc/en-gb/sections/360003793219-Coronavirus"{{!}}
+          {{!live      href="/hc/en-gb/sections/360003793119-Coronavirus"{{!}}
+                     class="govuk-link" style="color: #1d70b8;">check how the apprenticeship service will support you</a>.
         </p>
         <p>
           <strong>Are you an apprentice?</strong>
-          The <a href="/hc/en-gb/sections/{{settings.article_id_apprentice}}-Apprentice"
+          The <a
+          {{!sandbox }}href="/hc/en-gb/sections/360003833019-Apprentice"{{!}}
+          {{!live      href="/hc/en-gb/sections/360003798540-Apprentice"{{!}}
                        class="govuk-link" style="color: #1d70b8;">apprentice page</a> may help you with information on Coronavirus (COVID-19).
         </p>
       </div>
