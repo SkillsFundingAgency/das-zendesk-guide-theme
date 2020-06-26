@@ -1,7 +1,7 @@
 {
   "name": "GDS Style",
   "author": "Ben Arnold",
-  "version": "1.9.6",
+  "version": "1.9.8",
   "api_version": 1,
   "default_locale": "en-gb",
   "settings": [
@@ -127,6 +127,20 @@
           "description": "Ticket form",
           "label": "Feedback",
           "value": "360000712140"
+        },
+        {
+          "identifier": "article_id_cookies",
+          "type": "text",
+          "description": "Footer section",
+          "label": "Cookies",
+          "value": "360008941440"
+        },
+        {
+          "identifier": "article_id_accessibility",
+          "type": "text",
+          "description": "Footer section",
+          "label": "Accesibility",
+          "value": "360008997820"
         },
         {
           "identifier": "article_id_covid19",
