@@ -1,7 +1,7 @@
 {
-  "name": "Cookie Banner AD1750\n",
+  "name": "GDS Style",
   "author": "Ben Arnold",
-  "version": "1.9.7",
+  "version": "1.9.8",
   "api_version": 1,
   "default_locale": "en-gb",
   "settings": [
@@ -119,28 +119,42 @@
           "type": "text",
           "description": "Ticket form",
           "label": "Send a Message",
-          "value": "360000235179"
+          "value": "360000695579"
         },
         {
           "identifier": "form_id_feedback",
           "type": "text",
           "description": "Ticket form",
           "label": "Feedback",
-          "value": "360000292379"
+          "value": "360000712140"
+        },
+        {
+          "identifier": "article_id_cookies",
+          "type": "text",
+          "description": "Footer section",
+          "label": "Cookies",
+          "value": "360008941440"
+        },
+        {
+          "identifier": "article_id_accessibility",
+          "type": "text",
+          "description": "Footer section",
+          "label": "Accesibility",
+          "value": "360008997820"
         },
         {
           "identifier": "article_id_covid19",
           "type": "text",
           "description": "Articles section",
           "label": "COVID-19 Guidance",
-          "value": "360003793219"
+          "value": "360003793119"
         },
         {
           "identifier": "article_id_apprentice",
           "type": "text",
           "description": "Articles section",
           "label": "COVID-19 Apprentice",
-          "value": "360003833019"
+          "value": "360003798540"
         },
         {
           "identifier": "google_tag_manager_id",
