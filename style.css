@@ -862,3 +862,11 @@ iframe#launcher.zEWidget-launcher.zEWidget-launcher--active {
 .wysiwyg-text-align-center iframe {
   width: 100%;
 }
+
+.notice-banner, .notice-banner a, .notice-banner a:hover, .notice-banner a:visited {
+  color: #fff;
+}
+
+.notice-banner a {
+  font-weight: 600;
+}
