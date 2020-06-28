@@ -1,7 +1,7 @@
 <div class="govuk-width-container">
   
 <!-- Apprentice Articles -->
-{{#is section.id settings.article_id_apprentice }}
+{{#is section.name 'Apprentice' }}
   <style>.hide-for-apprentices { display: none; }</style>
 {{else}}
   {{#link 'help_center' class='govuk-back-link'}}
@@ -10,7 +10,7 @@
 {{/is}}
   
 <!-- Coronavirus Promoted Articles -->
-{{#is section.id settings.article_id_covid19 }}
+{{#is section.name 'Coronavirus' }}
     
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -38,7 +38,7 @@
 <!-- Coronavirus Promoted Articles -->
 
 <!-- Apprentice Promoted Articles -->
-{{#is section.id settings.article_id_apprentice }} 
+{{#is section.name 'Apprentice' }}
     
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -91,7 +91,7 @@
 </div>      
   
 <!-- Apprentices Articles -->
-{{#is section.id settings.article_id_apprentice }} 
+{{#is section.name 'Apprentice' }}
 <hr />  
 <section class="app-section">
   <div class="govuk-width-container">
