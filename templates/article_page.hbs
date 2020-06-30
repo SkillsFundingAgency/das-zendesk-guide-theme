@@ -1,5 +1,20 @@
 <div id="main-content" class="govuk-width-container">
-  
+
+{{#is article.title 'Furloughed apprentices' }}
+  <section name="header-surbey-banner" class="govuk-width-container notice-banner">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full" style="background: #005ea5; padding: 20px; padding-bottom: 10px; margin-top: 30px !important; margin-bottom: 20px;">  
+        <p class="notice-banner">
+          Have you been made redundant by your employer recently?  
+          <a href="https://www.smartsurvey.co.uk/s/PMHPH1/">Take part in a feedback session</a>
+          to help us improve our help and support to apprentices.
+        </p>
+      </div>
+    </div>
+  </section>
+{{/is}}
+
+
 {{#is section.name 'Apprentice' }}
 	{{! Apprentices Articles -- }}
   <a  class='govuk-back-link' href="/hc/en-gb/sections/{{settings.article_id_apprentice}}-Apprentice">Apprentice</a>
