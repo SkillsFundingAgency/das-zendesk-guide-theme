@@ -1,7 +1,7 @@
 {
   "name": "GDS Style",
   "author": "Ben Arnold",
-  "version": "1.9.10",
+  "version": "1.9.11",
   "api_version": 1,
   "default_locale": "en-gb",
   "settings": [
@@ -169,6 +169,13 @@
           "description": "Co-Browsing",
           "label": "Recursive API Key",
           "value": ""
+        },
+        {
+          "identifier": "disable_search_engine_indexing",
+          "type": "checkbox",
+          "description": "Tell Google/Bing etc not to index",
+          "label": "Add NoRobots tag",
+          "value": true
         }
       ]
     }
