@@ -309,8 +309,11 @@ if(requestSubject.length){//if the contact form with subject search articles opt
 
   /* Cookie Article, with consent starts */
     var cookieConsent = $('#select-measure-analytics'); 
+  
     if(cookieConsent.length ) {
-          cookieConsent.removeAttr('aria-hidden').append('<div class="govuk-form-group"><fieldset class="govuk-fieldset"><legend class="govuk-fieldset__legend govuk-fieldset__legend--m"><h3 class="govuk-fieldset__heading">Do you want us to measure your website use with Google Analytics?</h3></legend><div class="govuk-radios"><div class="govuk-radios__item"><input class="govuk-radios__input" id="cookie-consent-Yes" name="allow-analytics" type="radio"><label class="govuk-label govuk-radios__label" for="cookie-consent-Yes">Yes</label></div><div class="govuk-radios__item"><input class="govuk-radios__input" id="cookie-consent-No" name="allow-analytics" type="radio"><label class="govuk-label govuk-radios__label" for="cookie-consent-No">No</label></div></div></fieldset></div>');
+      		$('#select-measure-analytics-btn').append('<button id="saveCookieChanges" class="govuk-button" data-module="govuk-button">Save changes</button>');
+          
+      		cookieConsent.append('<div class="govuk-form-group"><fieldset class="govuk-fieldset"><div class="govuk-radios"><div class="govuk-radios__item"><input class="govuk-radios__input" id="cookie-consent-Yes" name="allow-analytics" type="radio"><label class="govuk-label govuk-radios__label" for="cookie-consent-Yes">Use cookies that measure my service use</label></div><div class="govuk-radios__item"><input class="govuk-radios__input" id="cookie-consent-No" name="allow-analytics" type="radio"><label class="govuk-label govuk-radios__label" for="cookie-consent-No">Do not use cookies that measure my service use</label></div></div></fieldset></div>');
 
           var cookieGoogle = readCookie('AnalyticsConsent');
 
@@ -321,15 +324,20 @@ if(requestSubject.length){//if the contact form with subject search articles opt
             $('#cookie-consent-Yes').prop("checked", true);
             $('#cookie-consent-No').prop("checked", false);
           }   
+      
+      		$('#saveCookieChanges').on('click',function(){
+            if($('#cookie-consent-Yes').is(':checked')){
+              writeCookie('AnalyticsConsent','true',365); 
+            	writeCookie('seen_cookie_message_help','cookie_policy',365); //also turn off cookie banner
+            }
+            if($('#cookie-consent-No').is(':checked')){
+              writeCookie('AnalyticsConsent','false',365); //document.cookie = "AnalyticsConsent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; //delete cookie
+            	writeCookie('seen_cookie_message_help','cookie_policy',365); //also turn off cookie banner
+            }
+          });
 
-          $('#cookie-consent-Yes').change(function() {
-            writeCookie('AnalyticsConsent','true',365); 
-            writeCookie('seen_cookie_message_help','cookie_policy',365); //also turn off cookie banner
-          });
-          $('#cookie-consent-No').change(function() {
-            writeCookie('AnalyticsConsent','false',365); //document.cookie = "AnalyticsConsent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; //delete cookie
-            writeCookie('seen_cookie_message_help','cookie_policy',365); //also turn off cookie banner
-          });
+          /*$('#cookie-consent-Yes').change(function() { writeCookie('AnalyticsConsent','true',365); writeCookie('seen_cookie_message_help','cookie_policy',365); });
+          $('#cookie-consent-No').change(function() {writeCookie('AnalyticsConsent','false',365); writeCookie('seen_cookie_message_help','cookie_policy',365); });*/
   }
 /* Cookie Article, with consent ends */
   
