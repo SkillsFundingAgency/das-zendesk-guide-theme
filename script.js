@@ -317,9 +317,9 @@ if(requestSubject.length){//if the contact form with subject search articles opt
 
           var cookieGoogle = readCookie('AnalyticsConsent');
 
-          if(cookieGoogle == 'false'){
+          if((cookieGoogle == 'false') || (cookieGoogle == null)){
+						$('#cookie-consent-Yes').prop("checked", false);
             $('#cookie-consent-No').prop("checked", true);
-            $('#cookie-consent-Yes').prop("checked", false);
           }else{//not false (unset or true)
             $('#cookie-consent-Yes').prop("checked", true);
             $('#cookie-consent-No').prop("checked", false);
