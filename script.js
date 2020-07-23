@@ -57,7 +57,49 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   /* cookie banner ends */  
   
-	
+
+/* Widget configuration */  
+   window.zESettings = {
+    webWidget: {
+      helpCenter: {
+        suppress: true
+      },
+      contactForm: {
+        suppress: true,
+        attachments: false
+      },
+      chat: {
+        menuOptions: {
+          emailTranscript: false
+        }
+      },
+       answerBot: {
+        suppress: true
+       }
+    }
+  };
+
+  zE('webWidget:on', 'chat:status', function(status) {
+    console.log('This chat session is now', status);
+    $(status == 'offline' ? '#chat-available' : '#chat-unavailable').hide();
+    $(status == 'offline' ? '#chat-unavailable' : '#chat-available').show();
+  });  
+
+  
+  if(!$('.hide-for-apprentices').is(':visible')) {
+    window.zESettings = {
+      webWidget: {
+        helpCenter: { suppress: true },
+        chat: { suppress: true },
+        contactForm: { suppress: true },
+        answerBot: { suppress: true },
+        talk: { suppress: true },
+      }
+    };
+    
+    $('.govuk-header__link').attr("href", "#");
+  }
+  /* End of Widget configuration */
   
   
 /* *** requests ticket list page start *** */
@@ -341,46 +383,7 @@ if(requestSubject.length){//if the contact form with subject search articles opt
   }
 /* Cookie Article, with consent ends */
   
-   window.zESettings = {
-    webWidget: {
-      helpCenter: {
-        suppress: true
-      },
-      contactForm: {
-        suppress: true,
-        attachments: false
-      },
-      chat: {
-        menuOptions: {
-          emailTranscript: false
-        }
-      },
-       answerBot: {
-        suppress: true
-       }
-    }
-  };
 
-  zE('webWidget:on', 'chat:status', function(status) {
-    console.log('This chat session is now', status);
-    $(status == 'offline' ? '#chat-available' : '#chat-unavailable').hide();
-    $(status == 'offline' ? '#chat-unavailable' : '#chat-available').show();
-  });  
-
-  
-  if(!$('.hide-for-apprentices').is(':visible')) {
-    window.zESettings = {
-      webWidget: {
-        helpCenter: { suppress: true },
-        chat: { suppress: true },
-        contactForm: { suppress: true },
-        answerBot: { suppress: true },
-        talk: { suppress: true },
-      }
-    };
-    
-    $('.govuk-header__link').attr("href", "#");
-  }
 
 });
 
