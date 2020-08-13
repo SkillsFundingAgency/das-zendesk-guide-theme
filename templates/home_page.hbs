@@ -46,7 +46,7 @@
                 <h3 class="govuk-heading-m">{{name}}</h3>
                 <ul class="govuk-list">
                   {{#each articles}}
-                    <li class="govuk-!-margin-top-6"><a class="govuk-link" href="{{url}}">{{title}}</a></li>
+                    <li class="govuk-!-margin-top-6"><a class="govuk-link article-link" href="{{url}}">{{title}}</a></li>
                   {{/each}}
                   <li class="govuk-!-margin-top-6"><a class="govuk-link govuk-!-font-weight-bold" href='{{url}}'>View all <span class="app-text--lowercase">{{name}}</span> articles</a></li>
               </ul>
@@ -146,3 +146,7 @@
 
   </div>
 </section>
+
+<script>
+  $(".govuk-list> li:nth-child(1n+4) .article-link").attr('hidden', true);
+</script>
