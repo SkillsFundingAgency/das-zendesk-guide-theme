@@ -46,7 +46,7 @@
                 <h3 class="govuk-heading-m">{{name}}</h3>
                 <ul class="govuk-list">
                   {{#each articles}}
-                    <li class="govuk-!-margin-top-6"><a class="govuk-link" href="{{url}}">{{title}}</a></li>
+                    <li class="govuk-!-margin-top-6"><a class="govuk-link article-link" href="{{url}}">{{title}}</a></li>
                   {{/each}}
                   <li class="govuk-!-margin-top-6"><a class="govuk-link govuk-!-font-weight-bold" href='{{url}}'>View all <span class="app-text--lowercase">{{name}}</span> articles</a></li>
               </ul>
@@ -91,6 +91,44 @@
         <h2 class="govuk-heading-l" id="contact-us">Contact us</h2>
         <p class="govuk-body">Our opening times are 8am to 8pm Monday to Friday.</p>
         <div class="das-cards">
+
+          <div class="das-card app-card">
+		        <div class="app-card-inner--grey govuk-!-margin-top-3">
+    		      <h2 class="govuk-heading-m">Webchat</h2>
+        		  <p id="chat-available" class="govuk-body">
+            		<a class="submit-a-request govuk-link" role="button" href="#" onclick="zE.activate();return false;">Speak to an adviser now</a>.
+          		</p>
+          		<p id="chat-unavailable" class="govuk-body">
+		            All webchat advisers are busy at the moment.
+    		      </p>
+	        	</div>
+        	</div>
+
+          <div class="das-card app-card">
+		        <div class="app-card-inner--grey govuk-!-margin-top-3">
+          		<h2 class="govuk-heading-m">Send a message</h2>
+          		<p class="govuk-body">You can <a class="submit-a-request govuk-link" role="button" href="/hc/en-gb/requests/new?ticket_form_id={{settings.form_id_default}}">send a message</a>.
+          		During our opening times, we’ll reply within 4 hours.</p>
+        		</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="das-cards">
+
+          <div class="das-card app-card">
+            <div class="app-card-inner--grey">
+              <h3 class="govuk-heading-m">Email</h3>
+              <p class="govuk-body">Send an email to</p>
+              <p class="govuk-body"><a href="mailto:helpdesk@manage-apprenticeships.service.gov.uk" class="govuk-link">helpdesk@manage-apprenticeships.service.gov.uk</a>.</p>
+              <p class="govuk-body">During our opening times, we’ll reply within 4 hours.</p>
+            </div>
+          </div>
+          
           <div class="das-card app-card">
             <div class="app-card-inner--grey">
               <h3 class="govuk-heading-m">Phone</h3>
@@ -102,42 +140,13 @@
             </div>
           </div>
 
-          <div class="das-card app-card">
-            <div class="app-card-inner--grey">
-              <h3 class="govuk-heading-m">Email</h3>
-              <p class="govuk-body">Send an email to</p>
-              <p class="govuk-body"><a href="mailto:helpdesk@manage-apprenticeships.service.gov.uk" class="govuk-link">helpdesk@manage-apprenticeships.service.gov.uk</a>.</p>
-              <p class="govuk-body">During our opening times, we’ll reply within 4 hours.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-        <div class="app-card-inner--grey govuk-!-margin-top-3">
-          <h2 class="govuk-heading-m">Send a message</h2>
-          <p class="govuk-body">You can <a class="submit-a-request govuk-link" role="button" href="/hc/en-gb/requests/new?ticket_form_id={{settings.form_id_default}}">send a message</a>.
-          During our opening times, we’ll reply within 4 hours.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-        <div class="app-card-inner--grey govuk-!-margin-top-3">
-          <h2 class="govuk-heading-m">Webchat</h2>
-          <p id="chat-available" class="govuk-body">
-            <a class="submit-a-request govuk-link" role="button" href="#" onclick="zE.activate();return false;">Speak to an adviser now</a>.
-          </p>
-          <p id="chat-unavailable" class="govuk-body">
-            All webchat advisers are busy at the moment.
-          </p>
-        </div>
+      	</div>
       </div>
     </div>
 
   </div>
 </section>
+
+<script>
+  $(".govuk-list> li:nth-child(1n+4) .article-link").attr('hidden', true);
+</script>

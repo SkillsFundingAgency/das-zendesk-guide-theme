@@ -870,3 +870,8 @@ iframe#launcher.zEWidget-launcher.zEWidget-launcher--active {
 .notice-banner a {
   font-weight: 600;
 }
+
+/* Only show the first three articles in any section */
+.govuk-list> li:nth-child(1n+4) .article-link {
+  display: none;
+}
