@@ -384,17 +384,22 @@ li {
 /*****  Article up down vote *****/
 
 .article-vote, .article-vote-thanks {
-  width:100%;
+  max-width:960px;
   background-color:#1d70b8;
   color:#fff;
   font-weight:700;
-  padding:5px 15px;
+  padding: 26px 20px 20px 15px;
+}
+
+.vote-prompt {
+  margin-right: 15px;
 }
 
 /* .voted ~ .vote-prompt {
   background-color: #fff;
 }
  */
+
 .article-vote-thanks, .article-vote-up, .article-vote-down {
   color:#fff;
   font-weight:400;
@@ -823,7 +828,7 @@ body.js-enabled .js-show {
 }
 #feedback-footer {border-bottom: 1px solid #fff; }
 #feedback-footer + footer {border-top: 10px solid #1d70b8; }
-#feedback-footer .govuk-grid-row {background-color: #1d70b8; padding: 26px 20px 20px 15px; }
+#feedback-footer .govuk-grid-row {background-color: #1d70b8; padding: 26px 20px 20px 15px; margin: 0; }
 #feedback-footer .govuk-grid-column-full {padding-left: 0; }
 #feedback-footer p {color: #fff; margin: 0; font-weight: bold;font-size: 16px; line-height: 1.25; }
 #feedback-footer p a {color: #fff; }
