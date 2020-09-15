@@ -21,18 +21,35 @@
   <style>.hide-for-apprentices { display: none; }</style>
 {{else}}
 	{{! All other articles -- }}
-  {{#link 'help_center' class='govuk-back-link'}}Help home{{/link}}
+	<div>
+    <nav aria-label="breadcrumbs">
+    	<ol class="govuk-breadcrumbs govuk-breadcrumbs__list">
+    	  <li class="govuk-breadcrumbs__list-item">
+          {{#link 'help_center' class="govuk-breadcrumbs__link" aria-current="false"}}Apprenticeship Support Service{{/link}}
+      	</li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" aria-current="false" href="{{section.url}}">{{section.name}}</a>
+        </li>
+    		<li class="govuk-breadcrumbs__list-item" aria-current="true">
+          {{article.title}}
+      	</li>
+  		</ol>
+    </nav>
+  </div> 
 {{/is}}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 title="{{article.title}}" class="govuk-heading-xl govuk-!-margin-top-8 govuk-!-margin-bottom-8">{{article.title}}</h1>
+      <h1 title="{{article.title}}" class="govuk-heading-xl govuk-!-margin-top-8 govuk-!-margin-bottom-2">{{article.title}}</h1>
+      <strong class="govuk-tag govuk-!-margin-bottom-3">{{section.name}}<span class="govuk-visually-hidden">This article sits within the {{section.name}} section</span>
+      </strong>
     </div>
   </div>
-
+  
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       {{article.body}}
+      <p class="govuk-!-margin-top-8 govuk-!-margin-bottom-6">Last updated on {{date article.created_at class='metadata' format="medium"}}</p>
     </div>
   </div>
 
