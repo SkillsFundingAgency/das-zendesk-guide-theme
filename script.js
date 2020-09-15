@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         suppress: true
       },
       contactForm: {
-        suppress: true,
+        suppress: false,
         attachments: false
       },
       chat: {
