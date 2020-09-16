@@ -4,16 +4,16 @@
       <div class="govuk-grid-column-full" style="border: 10px solid #ffe114; border-top: transparent; background: white; 
                                                  padding: 20px; padding-bottom: 20px; margin-top: -50px !important; margin-bottom: 20px;">
         {{#each categories}}
-          	{{#is name 'Status Banner'}}
-        
-        			<strong class="govuk-body-l govuk-!-font-weight-bold">Outages: </strong>
-        
+          	{{#is name 'Status Banner'}}        
           			{{#each sections}}
-          				{{#each articles}}
-           					<ul class="govuk-list" style="display: inline;">
-                  		<li class="govuk-!-margin-top-6" style="display: inline;"><a class="govuk-link" style="color: #1d70b8;" href='{{url}}'>{{title}}</a></li>
-                		</ul>
-          				{{/each}}
+        					{{#if articles}}
+        						<strong class="govuk-body-l govuk-!-font-weight-bold" style="padding-right: 15px;">Outages:</strong>
+          					{{#each articles}}
+           						<ul class="govuk-list" style="display: inline;">
+                  			<li class="govuk-!-margin-top-6" style="display: inline;"><a class="govuk-link" style="color: #1d70b8; padding-right: 15px;" href='{{url}}'>{{title}}</a></li>
+                			</ul>
+          					{{/each}}
+									{{/if}}
 								{{/each}}
           	{{/is}}
         {{/each}}
@@ -35,7 +35,6 @@
 
 <section class="app-section">
   <div class="govuk-width-container">
-    
   
    {{#each categories}}
       <!-- Internal articles -->
@@ -84,7 +83,6 @@
   </div>
 </section>
 
-
 <!-- ****** R14 promotional banner start ****** -->
 <section class="app-section govuk-width-container" style="padding-top: 0;">
     <div class="app-section--blue" style="padding: 25px 25px 10px 25px; margin-top: 0;">
@@ -106,7 +104,6 @@
     </div>
 </section>
 <!-- ****** R14 promotional banner ends ****** -->
-
 
 <section class="app-section">
   <div class="govuk-width-container">
