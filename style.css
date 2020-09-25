@@ -880,3 +880,7 @@ iframe#launcher.zEWidget-launcher.zEWidget-launcher--active {
 .govuk-list> li:nth-child(1n+4) .article-link {
   display: none;
 }
+
+.promotion-banner {
+  color: #fff  !important;
+}
