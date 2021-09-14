@@ -1,7 +1,7 @@
 {
   "name": "GDS Style",
   "author": "Ben Arnold",
-  "version": "1.9.37",
+  "version": "1.9.38",
   "api_version": 1,
   "default_locale": "en-gb",
   "settings": [
@@ -154,7 +154,7 @@
           "type": "text",
           "description": "Articles section",
           "label": "COVID-19 Apprentice",
-          "value": "360003798540"
+          "value": "4405114743698"
         },
         {
           "identifier": "google_tag_manager_id",
