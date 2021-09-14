@@ -157,6 +157,13 @@
           "value": "4405114743698"
         },
         {
+          "identifier": "article_id_apprentice_covid_info",
+          "type": "text",
+          "description": "Articles section",
+          "label": "COVID-19 Apprentice",
+          "value": "360003798540"
+        },
+        {
           "identifier": "google_tag_manager_id",
           "type": "text",
           "description": "GTM Identifier",
