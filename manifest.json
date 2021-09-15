@@ -154,14 +154,14 @@
           "type": "text",
           "description": "Articles section",
           "label": "Confirming Apprentice",
-          "value": "4405114743698"
+          "value": "4406707620754"
         },
         {
           "identifier": "article_id_apprentice_covid_info",
           "type": "text",
           "description": "Articles section",
           "label": "COVID-19 Apprentice",
-          "value": "360003798540"
+          "value": "360004071539"
         },
         {
           "identifier": "google_tag_manager_id",
