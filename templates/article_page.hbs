@@ -16,12 +16,8 @@
 
 
 {{#is section.name 'Apprentice' }}
-	{{! Apprentices Articles -- }}
-   {{#is settings.article_id_apprentice == "4406707620754"}}
+	{{! Apprentices Articles -- }}   
      <a class='govuk-back-link' href="/hc/en-gb/sections/{{settings.article_id_apprentice}}-Apprentice">Apprentice</a>  
-   {{else}}
-     <a class='govuk-back-link' href="/hc/en-gb/sections/{{settings.article_id_apprentice_covid_info}}-Apprentice">Apprentice</a>
-   {{/is}}
   <style>.hide-for-apprentices { display: none; }</style>
 {{else}}
 	{{! All other articles -- }}
