@@ -1,27 +1,3 @@
-<!-- ****** outage banner start ****** -->
-  <section name="header-coronavirus-banner" class="govuk-width-container hide-for-apprentices">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full" style="border: 10px solid #ffe114; border-top: transparent; background: white; 
-                                                 padding: 20px; padding-bottom: 20px; margin-top: -50px !important; margin-bottom: 20px;">
-        {{#each categories}}
-          	{{#is name 'Status Banner'}}        
-          			{{#each sections}}
-        					{{#if articles}}
-        						<strong class="govuk-body-l govuk-!-font-weight-bold" style="padding-right: 15px;">Issues affecting the service:</strong>
-          					{{#each articles}}
-           						<ul class="govuk-list" style="display: inline;">
-                  			<li class="govuk-!-margin-top-6" style="display: inline;"><a class="govuk-link" style="color: #1d70b8; padding-right: 15px;" href='{{url}}'>{{title}}</a></li>
-                			</ul>
-          					{{/each}}
-									{{/if}}
-								{{/each}}
-          	{{/is}}
-        {{/each}}
-      </div>
-    </div>
-  </section>
-<!-- ****** outage banner ends ****** -->
-
 <section class="app-section app-section--blue govuk-!-margin-top-3">
   <div class="govuk-width-container">
     <div class="govuk-grid-row">
