@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
    window.zESettings = {
     webWidget: {
       helpCenter: {
-        suppress: true
+        suppress: false
       },
       contactForm: {
         suppress: false,
