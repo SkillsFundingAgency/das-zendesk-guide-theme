@@ -87,15 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   
   if(!$('.hide-for-apprentices').is(':visible')) {
-    window.zESettings = {
-      webWidget: {
-        helpCenter: { suppress: true },
-        chat: { suppress: true },
-        contactForm: { suppress: true },
-        answerBot: { suppress: true },
-        talk: { suppress: true },
-      }
-    };
+
     
     $('.govuk-header__link').attr("href", "#");
   }
