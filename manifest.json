@@ -161,7 +161,7 @@
           "type": "text",
           "description": "GTM Identifier",
           "label": "Google Tag Manager",
-          "value": "GTM-N77DM65"
+          "value": ""
         },
         {
           "identifier": "recursive_api_key",
