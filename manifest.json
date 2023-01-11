@@ -1,7 +1,7 @@
 {
   "name": "GDS Style",
   "author": "Ben Arnold",
-  "version": "1.9.47",
+  "version": "1.9.48",
   "api_version": 1,
   "default_locale": "en-gb",
   "settings": [
@@ -161,7 +161,7 @@
           "type": "text",
           "description": "GTM Identifier",
           "label": "Google Tag Manager",
-          "value": "GTM-N77DM65"
+          "value": ""
         },
         {
           "identifier": "recursive_api_key",
