@@ -37,35 +37,6 @@
 {{/is}}
 <!-- Coronavirus Promoted Articles -->
 
-<!-- Apprentice Promoted Articles -->
-{{#is section.name 'Apprentice' }}
-    
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <div style="background-color: #f3f2f1; padding: 20px; margin: 50px 0;">
-      	
-        <h1 class="govuk-heading-l">Essential coronavirus (COVID-19) guidance</h1>
-        
-        {{#if section.articles}}
-          <ul class="govuk-list govuk-list--bullet">
-            {{#each section.articles}}
-              {{#if promoted}}
-              <li class="govuk-!-margin-bottom-2">
-                <a href="{{url}}" class="govuk-link">{{title}}</a>
-              </li>              
-              {{/if}}
-            {{/each}}
-          </ul>
-        {{/if}}        
-        
-      </div>
-    </div>
-  </div>
-{{/is}}
-<!-- Apprentice Promoted Articles -->
-
-
-
 <div class="govuk-grid-row govuk-!-margin-bottom-7">
   <div class="govuk-grid-column-two-thirds">
 
