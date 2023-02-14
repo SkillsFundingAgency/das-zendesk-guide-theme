@@ -1,129 +1,130 @@
 <section class="app-section app-section--blue govuk-!-margin-top-3">
-  <div class="govuk-width-container">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">  
-        <h1 class="govuk-heading-m app-heading--section-blue">Get help with the apprenticeship service</h1>
-        {{search submit=true instant=settings.instant_search class='app-search'}}
-      </div>
+    <div class="govuk-width-container">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-m app-heading--section-blue">Get help with the apprenticeship service</h1>
+                {{search submit=true instant=settings.instant_search class='app-search'}}
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <section class="app-section">
-  <div class="govuk-width-container">
-  
-   {{#each categories}}
-      <!-- Internal articles -->
-    	{{#is name "Internal"}}
-	    	
-	    	<h2 class="govuk-heading-l">Internal articles</h2>
+    <div class="govuk-width-container">
+
+        {{#each categories}}
+        <!-- Internal articles -->
+        {{#is name "Internal"}}
+
+        <h2 class="govuk-heading-l">Internal articles</h2>
 
         <div class="govuk-grid-row block-grid">
-          {{#each sections}}
-              <div class="govuk-grid-column-one-third govuk-!-margin-bottom-6">
+            {{#each sections}}
+            <div class="govuk-grid-column-one-third govuk-!-margin-bottom-6">
                 <h3 class="govuk-heading-m">{{name}}</h3>
                 <p>{{description}}</p>
                 <ul class="govuk-list">
-                  <li class="govuk-!-margin-top-6"><a class="govuk-link govuk-!-font-weight-bold" href='{{url}}'>View all <span class="app-text--lowercase">{{name}}</span> articles</a></li>
+                    <li class="govuk-!-margin-top-6"><a class="govuk-link govuk-!-font-weight-bold" href='{{url}}'>View all <span class="app-text--lowercase">{{name}}</span> articles</a></li>
                 </ul>
-              </div>
-          {{/each}}
+            </div>
+            {{/each}}
         </div>
-    
-        <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl govuk-!-margin-top-0">
-    	{{/is}}
-      <!-- Internal articles -->
 
-      <!-- Public articles -->
-    	{{#is name "Articles"}}  {{!-- articles, not cookies/feedback/terms/etc --}}
-	    	
-	    	<h2 class="govuk-heading-l">Help articles</h2>
+        <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl govuk-!-margin-top-0">
+        {{/is}}
+        <!-- Internal articles -->
+        <!-- Public articles -->
+        {{#is name "Articles"}}  {{!-- articles, not cookies/feedback/terms/etc --}}
+
+        <h2 class="govuk-heading-l">Help articles</h2>
 
         <div class="govuk-grid-row block-grid">
-          {{#each sections}}
-              <div class="govuk-grid-column-one-third">
+            {{#each sections}}
+            <div class="govuk-grid-column-one-third">
                 <h3 class="govuk-heading-m">{{name}}</h3>
                 <ul class="govuk-list">
-                  {{#each articles}}
+                    {{#each articles}}
                     <li class="govuk-!-margin-top-6"><a class="govuk-link article-link" href="{{url}}">{{title}}</a></li>
-                  {{/each}}
-                  <li class="govuk-!-margin-top-6"><a class="govuk-link govuk-!-font-weight-bold" href='{{url}}'>View all <span class="app-text--lowercase">{{name}}</span> articles</a></li>
-              </ul>
+                    {{/each}}
+                    <li class="govuk-!-margin-top-6"><a class="govuk-link govuk-!-font-weight-bold" href='{{url}}'>View all <span class="app-text--lowercase">{{name}}</span> articles</a></li>
+                </ul>
             </div>
-          {{/each}}
+            {{/each}}
         </div>
-    	
-    	{{/is}}
-    <!-- Public articles -->
-    {{/each}}
-  </div>
+
+        {{/is}}
+        <!-- Public articles -->
+        {{/each}}
+    </div>
 </section>
 
 <section class="app-section">
-  <div class="govuk-width-container">
+    <div class="govuk-width-container">
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full"> 
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
 
-        <h2 class="govuk-heading-l" id="contact-us">Contact us</h2>
-        <p class="govuk-body">Our opening times are 8am to 8pm Monday to Friday.</p>
-        <div class="das-cards">
+                <h2 class="govuk-heading-l" id="contact-us">Contact us</h2>
+                <p class="govuk-body">Our opening times are 8am to 8pm Monday to Friday.</p>
+                <div class="das-cards">
 
-          <div class="das-card app-card">
-		        <div class="app-card-inner--grey govuk-!-margin-top-3">
-    		      <h2 class="govuk-heading-m">Webchat</h2>
-        		  <p id="chat-available" class="govuk-body">
-            		<a class="submit-a-request govuk-link" role="button" href="#" onclick="javascript:void(zE('webWidget', 'popout'))">Speak to an adviser now</a>
-          		</p>
-          		<p id="chat-unavailable" class="govuk-body">
-		            All webchat advisers are busy at the moment.
-    		      </p>
-	        	</div>
-        	</div>
+                    <div class="das-card app-card">
+                        <div class="app-card-inner--grey govuk-!-margin-top-3">
+                            <h2 class="govuk-heading-m">Webchat</h2>
+                            <p id="chat-available" class="govuk-body">
+                                <a class="submit-a-request govuk-link" role="button" href="#" onclick="javascript:void(zE('webWidget', 'popout'))">Speak to an adviser now</a>
+                            </p>
+                            <p id="chat-unavailable" class="govuk-body">
+                                All webchat advisers are busy at the moment.
+                            </p>
+                        </div>
+                    </div>
 
-          <div class="das-card app-card">
-		        <div class="app-card-inner--grey govuk-!-margin-top-3">
-          		<h2 class="govuk-heading-m">Send a message</h2>
-          		<p class="govuk-body">You can <a class="submit-a-request govuk-link" role="button" href="/hc/en-gb/requests/new?ticket_form_id={{settings.form_id_default}}">send a message</a>.
-          		During our opening times, we’ll reply within 4 hours.</p>
-        		</div>
-          </div>
+                    <div class="das-card app-card">
+                        <div class="app-card-inner--grey govuk-!-margin-top-3">
+                            <h2 class="govuk-heading-m">Send a message</h2>
+                            <p class="govuk-body">
+                                You can <a class="submit-a-request govuk-link" role="button" href="/hc/en-gb/requests/new?ticket_form_id={{settings.form_id_default}}">send a message</a>.
+                                During our opening times, we’ll reply within 4 hours.
+                            </p>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-        <div class="das-cards">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+                <div class="das-cards">
 
-          <div class="das-card app-card">
-            <div class="app-card-inner--grey">
-              <h3 class="govuk-heading-m">Email</h3>
-              <p class="govuk-body">Send an email to</p>
-              <p class="govuk-body"><a href="mailto:helpdesk@manage-apprenticeships.service.gov.uk" class="govuk-link">helpdesk@manage-apprenticeships.service.gov.uk</a>.</p>
-              <p class="govuk-body">During our opening times, we’ll reply within 4 hours.</p>
+                    <div class="das-card app-card">
+                        <div class="app-card-inner--grey">
+                            <h3 class="govuk-heading-m">Email</h3>
+                            <p class="govuk-body">Send an email to</p>
+                            <p class="govuk-body"><a href="mailto:helpdesk@manage-apprenticeships.service.gov.uk" class="govuk-link">helpdesk@manage-apprenticeships.service.gov.uk</a>.</p>
+                            <p class="govuk-body">During our opening times, we’ll reply within 4 hours.</p>
+                        </div>
+                    </div>
+
+                    <div class="das-card app-card">
+                        <div class="app-card-inner--grey">
+                            <h3 class="govuk-heading-m">Phone</h3>
+                            <p class="govuk-body">Call us on <a href="tel:08000150600" class="mobile-link">08000 150 600</a>.</p>
+                            <p class="govuk-body">Text us on <a href="sms:07588690018" class="mobile-link">07588 690018</a>.</p>
+                            <p class="govuk-body">You cannot send us photos or videos via text.</p>
+                            <p class="govuk-body">Your phone company may charge you separately, standard <abbr>SMS</abbr> rates apply.</p>
+                            <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link" target="_blank">Find out about call charges</a>.</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-          </div>
-          
-          <div class="das-card app-card">
-            <div class="app-card-inner--grey">
-              <h3 class="govuk-heading-m">Phone</h3>
-              <p class="govuk-body">Call us on <a href="tel:08000150600" class="mobile-link">08000 150 600</a>.</p>
-              <p class="govuk-body">Text us on <a href="sms:07588690018" class="mobile-link">07588 690018</a>.</p>
-              <p class="govuk-body">You cannot send us photos or videos via text.</p>
-              <p class="govuk-body">Your phone company may charge you separately, standard <abbr>SMS</abbr> rates apply.</p>
-              <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link" target="_blank">Find out about call charges</a>.</p>
-            </div>
-          </div>
+        </div>
 
-      	</div>
-      </div>
     </div>
-
-  </div>
 </section>
 
 <script>
-  $(".govuk-list> li:nth-child(1n+4) .article-link").attr('hidden', true);
+    $(".govuk-list> li:nth-child(1n+4) .article-link").attr('hidden', true);
 </script>

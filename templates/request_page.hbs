@@ -1,127 +1,125 @@
 <div id="request-page" class="govuk-width-container">
-  
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <div class="govuk-breadcrumbs">
-        <ol class="govuk-breadcrumbs__list">
-          <li class="govuk-breadcrumbs__list-item">
-            {{#link 'help_center' class='govuk-breadcrumbs__link'}}Apprenticeship Service Support{{/link}}
-          </li>
-          <li class="govuk-breadcrumbs__list-item">
-            {{#link 'requests' class='govuk-breadcrumbs__link'}}Your tickets{{/link}}
-          </li>
-          <li class="govuk-breadcrumbs__list-item" aria-current="page">Ticket #{{request.id}}</li>
-        </ol>
-      </div>
-    </div>
-  </div>
-  
-  
-  <div class="govuk-grid-row">
-  
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l govuk-!-margin-top-6">{{request.subject}}</h1><br>
 
-      <section class="govuk-!-padding-bottom-6">
-        {{#each comments}}
-          {{#if author.agent}}
-            <h2 id="{{anchor}}" data-author-id="author-{{author.id}}" class="govuk-heading-s author-agent-{{author.agent}}">
-              <span>{{author.name}}</span><span class="govuk-caption-m"> on {{date created_at timeago=false}}</span>
-            </h2> 
-        	{{else}}
-        		<h2 id="{{anchor}}" data-author-id="author-{{author.id}}" class="govuk-heading-s author-agent-{{author.agent}}">
-              <span>{{author.name}}</span><span class="govuk-caption-m"> on {{date created_at timeago=false}}</span>
-            </h2> 
-          {{/if}}
-          {{body}}
-          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-        {{/each}}
-      </section>
-      
-      <section id="conversation-form" class="govuk-form-group govuk-!-margin-top-9">
-        {{#form 'comment' class='comment-form'}}
-				<fieldset class="govuk-fieldset" role="group">
-            <label class="govuk-label" for="request_comment_body">
-              Reply to ticket
-            </label>
-
-            <span id="conversation-error" class="govuk-error-message hide" aria-hidden="true">
-              <span class="govuk-visually-hidden">Error: </span>Enter a reply 
-            </span>
-
-            <textarea class="govuk-textarea govuk-!-margin-bottom-4" name="request[comment][body]" id="request_comment_body" aria-required="true" aria-label="Add your reply"></textarea>
-          
-            {{#if upload}}{{/if}}
-              <!--div id="request-uploads" class="govuk-form-group govuk-!-margin-top-6 govuk-!-margin-bottom-6">
-                <label class="govuk-label" for="request-attachments">
-                  Upload a file
-                </label>
-                {{upload}}
-              </div-->      
-            
-          
-            {{#if help_center.request_ccs_enabled}}
-              <div class="govuk-form-group comment-ccs form-field" style="border: 1px dashed #ccc;">
-               {{token_field 'ccs' class='ccs-input govuk-input'}}
-              </div>
-            {{/if}}           
-
-            <div class="govuk-form-group">
-              <button id="request-submit-btn" class="govuk-button govuk-!-margin-right-3" type="submit">Submit</button> 
-              
-              {{#if request.can_be_marked_as_solved}} 
-                <button id="request-solved-btn" type="button" class="govuk-button govuk-button--secondary" 
-                  data-solve-translation="{{t 'mark_as_solved'}}"
-                  data-solve-and-submit-translation="{{t 'mark_as_solved_and_submit'}}">
-                  {{t 'mark_as_solved'}}
-                </button>
-              {{/if}}
-              
-              {{checkbox 'mark_as_solved'}}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <div class="govuk-breadcrumbs">
+                <ol class="govuk-breadcrumbs__list">
+                    <li class="govuk-breadcrumbs__list-item">
+                        {{#link 'help_center' class='govuk-breadcrumbs__link'}}Apprenticeship Service Support{{/link}}
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        {{#link 'requests' class='govuk-breadcrumbs__link'}}Your tickets{{/link}}
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item" aria-current="page">Ticket #{{request.id}}</li>
+                </ol>
             </div>
-				
-        </fieldset>
-        {{/form}}
-      </section>
+        </div>
     </div>
-    
-    <div id="request-meta" class="govuk-grid-column-one-third govuk-!-padding-top-4">
-      
-    	<dl class="das-definition-list das-definition-list--table govuk-!-padding-top-3">
-            <dt class="das-definition-list__title das-definition-list__title--spacer">Status</dt>
-            <dd class="das-definition-list__definition das-definition-list__definition--spacer">
-              <span class="meta-data status-label-{{request.status}}" title="{{request.status_description}}">{{request.status_name}}</span>
-        		</dd>
-        
-            <dt class="das-definition-list__title das-definition-list__title--spacer">Ticket <abbr title="Identifier">ID</abbr></dt>
-            <dd class="das-definition-list__definition das-definition-list__definition--spacer">#{{request.id}}</dd>       
-        
-            <dt class="das-definition-list__title das-definition-list__title--spacer">Requester</dt>
-            <dd class="das-definition-list__definition das-definition-list__definition--spacer">{{request.requester.name}}</dd>
- 						
-        		{{#if collaborators}}
-              <dt class="das-definition-list__title das-definition-list__title--spacer definition-ccd-list"><abbr title="Complimentary copy">CC</abbr>&#8217;d</dt>
-              {{#each collaborators}}
+
+
+    <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l govuk-!-margin-top-6">{{request.subject}}</h1><br>
+
+            <section class="govuk-!-padding-bottom-6">
+                {{#each comments}}
+                {{#if author.agent}}
+                <h2 id="{{anchor}}" data-author-id="author-{{author.id}}" class="govuk-heading-s author-agent-{{author.agent}}">
+                    <span>{{author.name}}</span><span class="govuk-caption-m"> on {{date created_at timeago=false}}</span>
+                </h2>
+                {{else}}
+                <h2 id="{{anchor}}" data-author-id="author-{{author.id}}" class="govuk-heading-s author-agent-{{author.agent}}">
+                    <span>{{author.name}}</span><span class="govuk-caption-m"> on {{date created_at timeago=false}}</span>
+                </h2>
+                {{/if}}
+                {{body}}
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                {{/each}}
+            </section>
+
+            <section id="conversation-form" class="govuk-form-group govuk-!-margin-top-9">
+                {{#form 'comment' class='comment-form'}}
+                <fieldset class="govuk-fieldset" role="group">
+                    <label class="govuk-label" for="request_comment_body">
+                        Reply to ticket
+                    </label>
+
+                    <span id="conversation-error" class="govuk-error-message hide" aria-hidden="true">
+                        <span class="govuk-visually-hidden">Error: </span>Enter a reply
+                    </span>
+
+                    <textarea class="govuk-textarea govuk-!-margin-bottom-4" name="request[comment][body]" id="request_comment_body" aria-required="true" aria-label="Add your reply"></textarea>
+
+                    {{#if upload}}{{/if}}
+                    <!--div id="request-uploads" class="govuk-form-group govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+                      <label class="govuk-label" for="request-attachments">
+                        Upload a file
+                      </label>
+                      {{upload}}
+                    </div-->
+                    {{#if help_center.request_ccs_enabled}}
+                    <div class="govuk-form-group comment-ccs form-field" style="border: 1px dashed #ccc;">
+                        {{token_field 'ccs' class='ccs-input govuk-input'}}
+                    </div>
+                    {{/if}}
+
+                    <div class="govuk-form-group">
+                        <button id="request-submit-btn" class="govuk-button govuk-!-margin-right-3" type="submit">Submit</button>
+
+                        {{#if request.can_be_marked_as_solved}}
+                        <button id="request-solved-btn" type="button" class="govuk-button govuk-button--secondary"
+                                data-solve-translation="{{t 'mark_as_solved'}}"
+                                data-solve-and-submit-translation="{{t 'mark_as_solved_and_submit'}}">
+                            {{t 'mark_as_solved'}}
+                        </button>
+                        {{/if}}
+
+                        {{checkbox 'mark_as_solved'}}
+                    </div>
+
+                </fieldset>
+                {{/form}}
+            </section>
+        </div>
+
+        <div id="request-meta" class="govuk-grid-column-one-third govuk-!-padding-top-4">
+
+            <dl class="das-definition-list das-definition-list--table govuk-!-padding-top-3">
+                <dt class="das-definition-list__title das-definition-list__title--spacer">Status</dt>
+                <dd class="das-definition-list__definition das-definition-list__definition--spacer">
+                    <span class="meta-data status-label-{{request.status}}" title="{{request.status_description}}">{{request.status_name}}</span>
+                </dd>
+
+                <dt class="das-definition-list__title das-definition-list__title--spacer">Ticket <abbr title="Identifier">ID</abbr></dt>
+                <dd class="das-definition-list__definition das-definition-list__definition--spacer">#{{request.id}}</dd>
+
+                <dt class="das-definition-list__title das-definition-list__title--spacer">Requester</dt>
+                <dd class="das-definition-list__definition das-definition-list__definition--spacer">{{request.requester.name}}</dd>
+
+                {{#if collaborators}}
+                <dt class="das-definition-list__title das-definition-list__title--spacer definition-ccd-list"><abbr title="Complimentary copy">CC</abbr>&#8217;d</dt>
+                {{#each collaborators}}
                 <dd class="das-definition-list__definition das-definition-list__definition--spacer definition-ccd-list" title="{{name}}"><span>{{name}}</span></dd>
-              {{/each}}
-						{{/if}}        
-        
-            <dt class="das-definition-list__title das-definition-list__title--spacer">Created</dt>
-            <dd class="das-definition-list__definition das-definition-list__definition--spacer">{{date request.created_at}}</dd>  
-        
-            <dt class="das-definition-list__title das-definition-list__title--spacer">Last activity</dt>
-            <dd class="das-definition-list__definition das-definition-list__definition--spacer">{{date request.updated_at}}</dd>  
-						
-            {{#if attachments}}
+                {{/each}}
+                {{/if}}
+
+                <dt class="das-definition-list__title das-definition-list__title--spacer">Created</dt>
+                <dd class="das-definition-list__definition das-definition-list__definition--spacer">{{date request.created_at}}</dd>
+
+                <dt class="das-definition-list__title das-definition-list__title--spacer">Last activity</dt>
+                <dd class="das-definition-list__definition das-definition-list__definition--spacer">{{date request.updated_at}}</dd>
+
+                {{#if attachments}}
                 <dt class="das-definition-list__title das-definition-list__title--spacer">Attachments</dt>
                 {{#each attachments}}
-                    <dd class="das-definition-list__definition das-definition-list__definition--spacer">
-                      <a href="{{url}}" target="_blank" title="Opens in a new window" class="govuk-link">{{t 'download'}}</a>
-                    </dd> 
+                <dd class="das-definition-list__definition das-definition-list__definition--spacer">
+                    <a href="{{url}}" target="_blank" title="Opens in a new window" class="govuk-link">{{t 'download'}}</a>
+                </dd>
                 {{/each}}
-            {{/if}}
-        </dl>
+                {{/if}}
+            </dl>
+        </div>
+
     </div>
-    
-  </div>
 </div>

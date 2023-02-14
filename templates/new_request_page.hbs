@@ -1,16 +1,16 @@
 <div class="govuk-width-container">
-  {{#link 'help_center' class='govuk-back-link'}}
+    {{#link 'help_center' class='govuk-back-link'}}
     Help home
-  {{/link}}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <h1 class="govuk-heading-xl govuk-!-margin-top-8 govuk-!-margin-bottom-8" id="ticket-heading">Send a message</h1>
-      {{#if follow_up}}
-        <span class="govuk-caption-xl">{{follow_up}}</span>
-      {{/if}}
-      <div id="das-feedback-form">
-        {{request_form}}
-      </div>
+    {{/link}}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <h1 class="govuk-heading-xl govuk-!-margin-top-8 govuk-!-margin-bottom-8" id="ticket-heading">Send a message</h1>
+            {{#if follow_up}}
+            <span class="govuk-caption-xl">{{follow_up}}</span>
+            {{/if}}
+            <div id="das-feedback-form">
+                {{request_form}}
+            </div>
+        </div>
     </div>
-  </div>
 </div>

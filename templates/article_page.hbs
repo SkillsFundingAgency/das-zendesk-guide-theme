@@ -1,71 +1,76 @@
 <div id="main-content" class="govuk-width-container">
 
-{{#is article.title 'Apprentices that have been made redundant' }}
-  <section name="header-surbey-banner" class="govuk-width-container notice-banner">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full" style="background: #005ea5; padding: 20px; padding-bottom: 10px; margin-top: 30px !important; margin-bottom: 20px;">  
-        <p class="notice-banner">
-          Have you been made redundant?  
-          <a href="https://www.smartsurvey.co.uk/s/PMHPH1/">Take part in a feedback session</a>
-          to help us improve how we support apprentices.
-        </p>
-      </div>
-    </div>
-  </section>
-{{/is}}
+    {{#is article.title 'Apprentices that have been made redundant' }}
+    <section name="header-surbey-banner" class="govuk-width-container notice-banner">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full" style="background: #005ea5; padding: 20px; padding-bottom: 10px; margin-top: 30px !important; margin-bottom: 20px;">
+                <p class="notice-banner">
+                    Have you been made redundant?
+                    <a href="https://www.smartsurvey.co.uk/s/PMHPH1/">Take part in a feedback session</a>
+                    to help us improve how we support apprentices.
+                </p>
+            </div>
+        </div>
+    </section>
+    {{/is}}
 
 
-{{#is section.name 'Apprentice' }}
-	{{! Apprentices Articles -- }}
-  <a  class='govuk-back-link' href="/hc/en-gb/sections/{{section.id}}-Apprentice">Apprentice</a>
-  <style>.hide-for-apprentices { display: none; }</style>
-{{else}}
-	{{! All other articles -- }}
-	<div>
-    <nav aria-label="breadcrumbs">
-    	<ol class="govuk-breadcrumbs govuk-breadcrumbs__list">
-    	  <li class="govuk-breadcrumbs__list-item">
-          {{#link 'help_center' class="govuk-breadcrumbs__link" aria-current="false"}}Home{{/link}}
-      	</li>
-        <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" aria-current="false" href="{{section.url}}">{{section.name}}</a>
-        </li>
-    		<li class="govuk-breadcrumbs__list-item" aria-current="true">
-          {{article.title}}
-      	</li>
-  		</ol>
-    </nav>
-  </div> 
-{{/is}}
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 title="{{article.title}}" class="govuk-heading-xl govuk-!-margin-top-8 govuk-!-margin-bottom-2">{{article.title}}</h1>
-      <strong class="govuk-tag govuk-!-margin-bottom-3">{{section.name}}<span class="govuk-visually-hidden">This article sits within the {{section.name}} section</span>
-      </strong>
-    </div>
-  </div>
-  
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      {{article.body}}
-      <p class="govuk-!-margin-top-8 govuk-!-margin-bottom-6">Last updated on {{date article.edited_at class='metadata' format="medium"}}</p>
-    </div>
-  </div>
-
-  {{#with article}}
+    {{#is section.name 'Apprentice' }}
+    {{! Apprentices Articles -- }}
+    <a class='govuk-back-link' href="/hc/en-gb/sections/{{section.id}}-Apprentice">Apprentice</a>
+    <style>
+        .hide-for-apprentices {
+            display: none;
+        }
+    </style>
+    {{else}}
+    {{! All other articles -- }}
     <div>
-      <div class="article-vote govuk-!-margin-top-6">
-      {{vote 'up' role='radio' class='article-vote-hidden' selected_class="voted"}}
-      {{vote 'down' role='radio' class='article-vote-hidden' selected_class='voted'}}
-        <span class="vote-prompt">Is this page useful?</span>
-        <span class="article-vote-thanks govuk-!-margin-top-6">
-          Thank you for your feedback. You can  
-        </span>
-        {{vote 'up' role='radio' class='article-vote article-vote-up' selected_class="voted"}}
-        {{vote 'down' role='radio' class='article-vote article-vote-down' selected_class='voted'}}
-      </div>
+        <nav aria-label="breadcrumbs">
+            <ol class="govuk-breadcrumbs govuk-breadcrumbs__list">
+                <li class="govuk-breadcrumbs__list-item">
+                    {{#link 'help_center' class="govuk-breadcrumbs__link" aria-current="false"}}Home{{/link}}
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" aria-current="false" href="{{section.url}}">{{section.name}}</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item" aria-current="true">
+                    {{article.title}}
+                </li>
+            </ol>
+        </nav>
     </div>
-  {{/with}}
-        
+    {{/is}}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 title="{{article.title}}" class="govuk-heading-xl govuk-!-margin-top-8 govuk-!-margin-bottom-2">{{article.title}}</h1>
+            <strong class="govuk-tag govuk-!-margin-bottom-3">
+                {{section.name}}<span class="govuk-visually-hidden">This article sits within the {{section.name}} section</span>
+            </strong>
+        </div>
+    </div>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{article.body}}
+            <p class="govuk-!-margin-top-8 govuk-!-margin-bottom-6">Last updated on {{date article.edited_at class='metadata' format="medium"}}</p>
+        </div>
+    </div>
+
+    {{#with article}}
+    <div>
+        <div class="article-vote govuk-!-margin-top-6">
+            {{vote 'up' role='radio' class='article-vote-hidden' selected_class="voted"}}
+            {{vote 'down' role='radio' class='article-vote-hidden' selected_class='voted'}}
+            <span class="vote-prompt">Is this page useful?</span>
+            <span class="article-vote-thanks govuk-!-margin-top-6">
+                Thank you for your feedback. You can
+            </span>
+            {{vote 'up' role='radio' class='article-vote article-vote-up' selected_class="voted"}}
+            {{vote 'down' role='radio' class='article-vote article-vote-down' selected_class='voted'}}
+        </div>
+    </div>
+    {{/with}}
+
 </div>
